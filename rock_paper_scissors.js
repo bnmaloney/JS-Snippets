@@ -1,13 +1,12 @@
 function winner(move) {
   if (move==='scissors') {
     return 'rock';
-  }
-  if (move==='rock') {
+  } else if (move==='rock') {
     return 'paper';
-  }
-  if(move==='paper') {
+  } else if(move==='paper') {
     return 'scissors';
   }
+  return 'n/a';
 }
 
 function winner2(move) {
@@ -18,6 +17,8 @@ function winner2(move) {
       return 'paper';
     case 'paper':
       return 'scissors';
+    default:
+      return 'n/a';
   }
 }
 
@@ -28,12 +29,21 @@ function winner3(move) {
     'paper': 'scissors'
   };
 
-  return moveGenie[move];
+  return moveGenie[move] || 'n/a';
 }
 
-['rock', 'paper', 'scissors'].forEach(function (move) {
+const x =  function (move) {
   console.log('move:', move, ' beaten by: ', winner(move), winner2(move), winner3(move));
-})
+}
+
+
+let moves = ['rock', 'paper', 'scissors', 'god']
+
+// pre; cond; post
+for (let i = 0; i < moves.length; i++) {
+  let m = moves[i];
+  x(m);
+}
 
 
 
